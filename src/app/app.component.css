@@ -1,0 +1,41 @@
+.box {
+    padding: 25px;
+    background-color: #c3c3c3;
+    float: left;
+    width: 100%;
+}
+
+.tablaPr {
+    width: 100%;
+    border: 1px solid #c3c3c3;
+}
+
+.tablaPr tr,
+.tablaPr thead {
+    border-bottom: 1px solid #c3c3c3;
+}
+
+.tablaPr td {
+    padding: 10px;
+}
+
+.eliminar {
+    cursor: pointer;
+    font-weight: bold;
+    float: right;
+}
+
+#buscador {
+    border-radius: 5px;
+    width: 50%;
+    border: 1px solid black;
+    appearance: none;
+}
+
+.form-control {
+    border: 1px solid black;
+}
+
+.bol td {
+    font-weight: bold;
+}

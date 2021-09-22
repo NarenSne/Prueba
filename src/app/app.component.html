@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 float-left">
+            <h2>Contactos</h2>
+            <div class="box">
+                <h5>AGREGAR NUEVO CONTACTO</h5>
+                <div class="col-md-3 float-left">
+                    <label for="Nombre">Nombre</label><br>
+                    <input type="text" name="Nombre" [(ngModel)]="nombre" class="form-control">
+                </div>
+                <div class="col-md-3 float-left">
+                    <label for="Entidad">Entidad</label><br>
+                    <input type="text" name="Entidad" [(ngModel)]="entidad" class="form-control">
+                </div>
+                <div class="col-md-3 float-left">
+                    <label for="Email">Email</label><br>
+                    <input type="email" name="Email" [(ngModel)]="email" class="form-control">
+                </div>
+                <div class="col-md-3 float-left">
+                    <br>
+                    <button (click)="agregar()" class="btn btn-dark mt-2">AGREGAR</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 float-left pt-5">
+            <div>
+                <label for="buscador">Filtrar:</label><br>
+                <input type="text" name="buscador" id="buscador" [(ngModel)]="busca" (input)="buscar()" class="form-control">
+            </div>
+        </div>
+        <div class="col-12 float-left pt-5">
+            <table class="tablaPr">
+                <thead>
+                    <td>Nombre</td>
+                    <td>Entidad</td>
+                    <td>Email</td>
+                    <td></td>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let dato of datos.rows; let i = index" [class.bol]="clases">
+                        <td>{{dato.nombre}}</td>
+                        <td>{{dato.Entidad}}</td>
+                        <td>{{dato.Email}}</td>
+                        <td><span (click)="editar(i)">Editar</span> <span (click)="eliminar(i)" class="eliminar">X</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" [class.d-block]="block">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 float-left">
+                    <label for="Nombre">Nombre</label><br>
+                    <input type="text" name="Nombre" [(ngModel)]="editnombre" class="form-control">
+                </div>
+                <div class="col-md-12 float-left">
+                    <label for="Entidad">Entidad</label><br>
+                    <input type="text" name="Entidad" [(ngModel)]="editentidad" class="form-control">
+                </div>
+                <div class="col-md-12 float-left">
+                    <label for="Email">Email</label><br>
+                    <input type="email" name="Email" [(ngModel)]="editemail" class="form-control">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="block=false">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
